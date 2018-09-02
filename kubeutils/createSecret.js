@@ -1,5 +1,5 @@
 const rp = require('request-promise');
-const Buffer = require('buffer');
+const {Buffer} = require('buffer');
 const config = require('../config');
 
 class CreateSecretOptions {
