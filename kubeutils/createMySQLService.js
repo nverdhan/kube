@@ -27,7 +27,7 @@ class CreateMySQLServiceOptions {
             }
          ],
          "selector":{
-            "app":"mysql"
+            "app":`mysql-${name}`
          },
          "type":"ClusterIP"
       }
