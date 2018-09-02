@@ -17,6 +17,9 @@ class StartWordpressServiceOptions {
          "labels":{
             "app":`wordpress-${name}`
          },
+         annotations: {
+          'nginx.ingress.kubernetes.io/affinity': 'cookie'
+         },
          "name":`wordpress-${name}`,
          "namespace":"default"
       },
@@ -30,8 +33,7 @@ class StartWordpressServiceOptions {
          ],
          "selector":{
             "app":`wordpress-${name}`
-         },
-         "type":"LoadBalancer"
+         }
       }
     }
   }
