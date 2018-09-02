@@ -7,6 +7,7 @@ const startWordpressService = require('./startWordpressService');
 
 const deleteVolumeClaims = require('./deleteVolumeClaims');
 const deleteServices = require('./deleteServices');
+const deleteSecrets = require('./deleteSecrets');
 
 module.exports = {
   createVolumeClaims,
