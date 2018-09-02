@@ -23,9 +23,9 @@ class StartWordpressServiceOptions {
       "spec":{
          "ports":[
             {
-               "port":80,
+               "port":8080,
                "protocol":"TCP",
-               "targetPort":80
+               "targetPort":8080
             }
          ],
          "selector":{
