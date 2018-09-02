@@ -5,11 +5,17 @@ const deployMysql = require('./deployMysql');
 const deployWordpress = require('./deployWordpress');
 const startWordpressService = require('./startWordpressService');
 
+const deleteVolumeClaims = require('./deleteVolumeClaims');
+const deleteServices = require('./deleteServices');
+
 module.exports = {
   createVolumeClaims,
   createSecret,
   deployMysql,
   createMySQLService,
   deployWordpress,
-  startWordpressService
+  startWordpressService,
+  deleteVolumeClaims,
+  deleteServices,
+  deleteSecrets
 };
