@@ -33,7 +33,8 @@ class StartWordpressServiceOptions {
          ],
          "selector":{
             "app":`wordpress-${name}`
-         }
+         },
+         "type":"NodePort"
       }
     }
   }
