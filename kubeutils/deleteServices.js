@@ -13,7 +13,7 @@ class DeleteServicesOptions  {
 
 module.exports = (name) => {
   const deleteMySqlServiceOptions = new DeleteServicesOptions(`mysql-${name}`);
-  const deleteWordpressServiceOptions = new DeleteServicesOptions(`wordepress-${name}`);
+  const deleteWordpressServiceOptions = new DeleteServicesOptions(`wordpress-${name}`);
 
   return Promise.all([
     rp(deleteMySqlServiceOptions),
