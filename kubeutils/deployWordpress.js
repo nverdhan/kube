@@ -39,7 +39,7 @@ class DeployWordpressOptions {
                      "env":[
                         {
                            "name":"WORDPRESS_DB_HOST",
-                           "value":"mysql:3306"
+                           "value":`mysql-${name}:3306`
                         },
                         {
                            "name":"WORDPRESS_DB_PASSWORD",
