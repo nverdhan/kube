@@ -11,7 +11,7 @@ class DeleteVolumeClaimOptions  {
   }
 }
 
-module.expoerts = async (name) => {
+module.exports = (name) => {
   const mySqlVolumeClaimOptions = new DeleteVolumeClaimOptions(`mysql-volumeclaim-${name}`);
   const wordpressVolumeClaimOptions = new DeleteVolumeClaimOptions(`wordpress-volumeclaim-${name}`);
 

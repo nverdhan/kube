@@ -29,7 +29,7 @@ class VolumeClaimOptions {
   }
 }
 
-module.exports = async (name) => {
+module.exports = (name) => {
   const mySqlVolumeClaimOptions = new VolumeClaimOptions(new VolumeClaimData(`mysql-volumeclaim-${name}`, '2Gi'));
   const wordpressVolumeClaimOptions = new VolumeClaimOptions(new VolumeClaimData(`wordpress-volumeclaim-${name}`, '2Gi'));
 
