@@ -55,7 +55,7 @@ class DeployWordpressOptions {
                      "name":"wordpress",
                      "ports":[
                         {
-                           "containerPort":8080,
+                           "containerPort":80,
                            "name":"wordpress"
                         }
                      ],
