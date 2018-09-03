@@ -66,20 +66,25 @@ class DeployWordpressOptions {
                       }
                     ],
                     "livenessProbe": {
-                      "httpGet": {
-                        "initialDelaySeconds": 15,
-                        "path": "/wp-admin/install.php",
-                        "periodSeconds": 5,
-                        "port": 80
-                      }
+                      "exec": {
+                        "command": [
+                          "cat",
+                          "index.php"
+                        ]
+                      },
+                      "initialDelaySeconds": 300,
+                      "periodSeconds": 5
                     },
                     "readinessProbe": {
-                      "httpGet": {
-                        "initialDelaySeconds": 15,
-                        "path": "/wp-admin/install.php",
-                        "port": 80
-                      }
-                    }
+                      "exec": {
+                        "command": [
+                          "cat",
+                          "index.php"
+                        ]
+                      },
+                      "initialDelaySeconds": 300,
+                      "periodSeconds": 5
+                    },
                   }
                ],
                "volumes":[
