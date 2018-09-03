@@ -34,7 +34,7 @@ class StartWordpressServiceOptions {
          "selector":{
             "app":`wordpress-${name}`
          },
-         "type":"LoadBalancer"
+         "type":"NodePort"
       }
     }
   }
