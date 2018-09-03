@@ -65,22 +65,19 @@ class DeployWordpressOptions {
                           "name":`wordpress-persistent-storage-${name}`
                       }
                     ],
-                    // readinessProbe: {
-                    //   httpGet: {
-                    //     path: '/wp-admin/install.php',
-                    //     port: 80,
-                    //     initialDelaySeconds: 60,
-                    //     periodSeconds: 60
-                    //   }
-                    // },
-                    // livenessProbe: {
-                    //   httpGet: {
-                    //     path: '/wp-admin/install.php',
-                    //     port: 80,
-                    //     initialDelaySeconds: 60,
-                    //     periodSeconds: 60
-                    //   }
-                    // }
+                    "livenessProbe": {
+                      "httpGet": null,
+                      "initialDelaySeconds": 15,
+                      "path": "/wp-admin",
+                      "periodSeconds": 5,
+                      "port": 80
+                    },
+                    "readinessProbe": {
+                      "httpGet": null,
+                      "initialDelaySeconds": 15,
+                      "path": "/wp-admin",
+                      "port": 80
+                    }
                   }
                ],
                "volumes":[
