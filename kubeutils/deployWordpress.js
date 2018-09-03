@@ -66,17 +66,19 @@ class DeployWordpressOptions {
                       }
                     ],
                     "livenessProbe": {
-                      "httpGet": null,
-                      "initialDelaySeconds": 15,
-                      "path": "/wp-admin",
-                      "periodSeconds": 5,
-                      "port": 80
+                      "httpGet": {
+                        "initialDelaySeconds": 15,
+                        "path": "/wp-admin/install.php",
+                        "periodSeconds": 5,
+                        "port": 80
+                      }
                     },
                     "readinessProbe": {
-                      "httpGet": null,
-                      "initialDelaySeconds": 15,
-                      "path": "/wp-admin",
-                      "port": 80
+                      "httpGet": {
+                        "initialDelaySeconds": 15,
+                        "path": "/wp-admin/install.php",
+                        "port": 80
+                      }
                     }
                   }
                ],
