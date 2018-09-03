@@ -36,35 +36,51 @@ class DeployWordpressOptions {
             "spec":{
                "containers":[
                   {
-                     "env":[
-                        {
-                           "name":"WORDPRESS_DB_HOST",
-                           "value":`mysql-${name}:3306`
-                        },
-                        {
-                           "name":"WORDPRESS_DB_PASSWORD",
-                           "valueFrom":{
-                              "secretKeyRef":{
-                                 "key":"password",
-                                 "name":`mysql-${name}`
-                              }
-                           }
-                        }
-                     ],
-                     "image":"wordpress",
-                     "name":"wordpress",
-                     "ports":[
-                        {
-                           "containerPort":80,
-                           "name":"wordpress"
-                        }
-                     ],
-                     "volumeMounts":[
-                        {
-                           "mountPath":"/var/www/html",
-                           "name":`wordpress-persistent-storage-${name}`
-                        }
-                     ]
+                    "env":[
+                      {
+                          "name":"WORDPRESS_DB_HOST",
+                          "value":`mysql-${name}:3306`
+                      },
+                      {
+                          "name":"WORDPRESS_DB_PASSWORD",
+                          "valueFrom":{
+                            "secretKeyRef":{
+                                "key":"password",
+                                "name":`mysql-${name}`
+                            }
+                          }
+                      }
+                    ],
+                    "image":"wordpress",
+                    "name":"wordpress",
+                    "ports":[
+                      {
+                          "containerPort":80,
+                          "name":"wordpress"
+                      }
+                    ],
+                    "volumeMounts":[
+                      {
+                          "mountPath":"/var/www/html",
+                          "name":`wordpress-persistent-storage-${name}`
+                      }
+                    ],
+                    readinessProbe: {
+                    httpGet: {
+                      path: '/wp-admin/install.php',
+                      port: 'http',
+                      initialDelaySeconds: 60,
+                      periodSeconds: 60
+                    }
+                    },
+                    livenessProbe: {
+                      httpGet: {
+                        path: '/wp-admin/install.php',
+                        port: 'http',
+                        initialDelaySeconds: 60,
+                        periodSeconds: 60
+                      }
+                    }
                   }
                ],
                "volumes":[
