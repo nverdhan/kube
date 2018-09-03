@@ -68,7 +68,7 @@ class DeployWordpressOptions {
                     readinessProbe: {
                     httpGet: {
                       path: '/wp-admin/install.php',
-                      port: 'http',
+                      port: 80,
                       initialDelaySeconds: 60,
                       periodSeconds: 60
                     }
@@ -76,7 +76,7 @@ class DeployWordpressOptions {
                     livenessProbe: {
                       httpGet: {
                         path: '/wp-admin/install.php',
-                        port: 'http',
+                        port: 80,
                         initialDelaySeconds: 60,
                         periodSeconds: 60
                       }
